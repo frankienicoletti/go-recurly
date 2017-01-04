@@ -15,14 +15,14 @@ func NewClient(httpClient *http.Client) *recurly.Client {
 	client := recurly.NewClient("a", "b", httpClient)
 
 	// Services not implemented in mock package are nil so that they panic when used.
-	client.Accounts = nil
-	client.Adjustments = nil
-	client.Billing = nil
-	client.Coupons = nil
-	client.Redemptions = nil
-	client.Invoices = nil
-	client.Plans = nil
-	client.AddOns = nil
+	client.Accounts = &AccountsService{}
+	client.Adjustments = &AdjustmentsService{}
+	client.Billing = &BillingService{}
+	client.Coupons = &CouponsService{}
+	client.Redemptions = &RedemptionsService{}
+	client.Invoices = &InvoicesService{}
+	client.Plans = &PlansService{}
+	client.AddOns = &AddOnsService{}
 	client.Subscriptions = &SubscriptionsService{}
 	client.Transactions = &TransactionsService{}
 
